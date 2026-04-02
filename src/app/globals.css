@@ -1,0 +1,168 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-lora);
+  }
+  
+  h1 {
+    @apply text-h1-mobile md:text-h1-desktop font-lora font-semibold;
+  }
+  
+  h2 {
+    @apply text-4xl md:text-5xl font-lora font-medium;
+  }
+  
+  h3 {
+    @apply text-2xl md:text-3xl font-lora font-medium;
+  }
+  
+  p {
+    @apply text-body-mobile md:text-body font-dm-sans;
+  }
+}
+
+@layer components {
+  /* Photography filter for ambient/background images */
+  .ambient-photo {
+    filter: brightness(0.92) saturate(0.85) contrast(1.05);
+  }
+  
+  /* Ken Burns effect for hero images */
+  .ken-burns {
+    animation: kenBurns 12s ease-out infinite;
+  }
+  
+  /* Luxury button styles */
+  .btn-primary {
+    @apply px-8 py-4 bg-accent text-background font-dm-sans font-medium tracking-wide transition-all duration-300 hover:scale-[1.02] hover:bg-opacity-90;
+  }
+  
+  .btn-secondary {
+    @apply px-8 py-4 border-2 border-accent text-accent font-dm-sans font-medium tracking-wide transition-all duration-300 hover:scale-[1.02] hover:bg-accent hover:text-background;
+  }
+  
+  /* Navbar transition */
+  .navbar-solid {
+    @apply bg-primary-dark/95 backdrop-blur-navbar shadow-lg;
+  }
+  
+  /* Force navbar to be solid on specific pages */
+  .force-navbar-solid nav {
+    @apply bg-primary-dark/95 backdrop-blur-navbar shadow-lg;
+  }
+  
+  /* Card hover effects */
+  .service-card {
+    @apply transition-all duration-300 hover:-translate-y-1 hover:shadow-xl;
+  }
+  
+  .service-card .service-image {
+    @apply transition-transform duration-500 hover:scale-105;
+  }
+  
+  /* Gallery image effects */
+  .gallery-image {
+    @apply transition-all duration-300 hover:-translate-y-1 hover:shadow-lg;
+  }
+  
+  /* Underline animation for nav links */
+  .nav-link {
+    @apply relative transition-colors duration-300;
+  }
+  
+  /* Default underline */
+  .nav-link::after {
+    content: '';
+    @apply absolute bottom-0 left-0 w-0 h-0.5 transition-all duration-300;
+  }
+  
+  /* Scrolled navbar - use accent color underline */
+  .nav-link.nav-scrolled::after {
+    @apply bg-accent;
+  }
+  
+  /* Transparent navbar - use light gray underline */
+  .nav-link.nav-transparent::after {
+    background-color: #ebebeb;
+  }
+  
+  .nav-link:hover::after {
+    @apply w-full;
+  }
+  
+  /* Gradient overlays */
+  .gradient-overlay-dark {
+    background: linear-gradient(135deg, rgba(27, 45, 58, 0.75) 0%, rgba(27, 45, 58, 0.3) 100%);
+  }
+  
+  .gradient-overlay-light {
+    background: linear-gradient(135deg, rgba(245, 243, 239, 0.9) 0%, rgba(245, 243, 239, 0.6) 100%);
+  }
+  
+  /* Form styles */
+  .form-input {
+    @apply w-full px-4 py-3 border border-text-light/30 rounded-none bg-background text-text-primary placeholder-text-light/60 focus:border-accent focus:outline-none focus:ring-1 focus:ring-accent transition-colors duration-200;
+  }
+  
+  .form-label {
+    @apply block text-sm font-dm-sans font-medium text-text-primary mb-2;
+  }
+  
+  /* Section padding */
+  .section-padding {
+    @apply py-16 md:py-24 lg:py-32;
+  }
+  
+  .container-padding {
+    @apply px-6 md:px-8 lg:px-12 xl:px-16 max-w-7xl mx-auto;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  
+  /* Aspect ratios for images */
+  .aspect-video {
+    aspect-ratio: 16 / 9;
+  }
+  
+  .aspect-square {
+    aspect-ratio: 1 / 1;
+  }
+  
+  .aspect-portrait {
+    aspect-ratio: 3 / 4;
+  }
+  
+  /* Custom scrollbar */
+  .scrollbar-thin {
+    scrollbar-width: thin;
+    scrollbar-color: #8B7355 #F5F3EF;
+  }
+  
+  .scrollbar-thin::-webkit-scrollbar {
+    width: 6px;
+  }
+  
+  .scrollbar-thin::-webkit-scrollbar-track {
+    background: #F5F3EF;
+  }
+  
+  .scrollbar-thin::-webkit-scrollbar-thumb {
+    background: #8B7355;
+    border-radius: 3px;
+  }
+}

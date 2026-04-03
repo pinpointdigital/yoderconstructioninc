@@ -29,7 +29,7 @@ export default function HeroVideo({
   const y = useTransform(scrollYProgress, [0, 1], [0, -50]);
   const opacity = useTransform(scrollYProgress, [0, 0.8, 1], [1, 0.8, 0.6]);
 
-  // Force video to play on mount (Safari fix)
+  // Optimized video loading for Safari
   useEffect(() => {
     const video = videoRef.current;
     if (video) {
@@ -38,20 +38,48 @@ export default function HeroVideo({
       video.defaultMuted = true;
       video.controls = false;
       
-      // Safari-specific attributes
+      // Safari-specific attributes for better performance
       video.setAttribute('webkit-playsinline', 'true');
       video.setAttribute('x-webkit-airplay', 'deny');
       
-      // Attempt to play after a short delay
-      setTimeout(() => {
+      // Force immediate load for Safari
+      video.load();
+      
+      const attemptPlay = () => {
         const playPromise = video.play();
         if (playPromise !== undefined) {
-          playPromise.catch(error => {
-            // Auto-play was prevented, which is fine for Safari
+          playPromise.then(() => {
+            // Video started successfully, upgrade preload for smoother loops
+            video.preload = 'auto';
+          }).catch(error => {
+            // Auto-play was prevented
             console.log('Auto-play prevented:', error);
           });
         }
-      }, 100);
+      };
+      
+      // Try multiple methods for fastest Safari startup
+      if (video.readyState >= 3) {
+        // Video is already ready
+        attemptPlay();
+      } else {
+        // Wait for video to be ready
+        const onCanPlay = () => {
+          attemptPlay();
+          video.removeEventListener('canplay', onCanPlay);
+        };
+        
+        const onLoadedData = () => {
+          attemptPlay();
+          video.removeEventListener('loadeddata', onLoadedData);
+        };
+        
+        video.addEventListener('canplay', onCanPlay);
+        video.addEventListener('loadeddata', onLoadedData);
+        
+        // Fallback timeout for Safari
+        setTimeout(attemptPlay, 50);
+      }
     }
   }, []);
 
@@ -74,7 +102,7 @@ export default function HeroVideo({
         muted 
         loop 
         playsInline
-        preload="auto"
+        preload="metadata"
         poster={poster}
         className="w-full h-full object-cover cursor-pointer"
         style={{

@@ -154,7 +154,7 @@ export default function Home() {
         <HeroVideo 
           desktopVideo="/images/hero/YoderHeroVideo-Resized.mp4"
           mobileVideo="/images/hero/YoderHeroVideo-Resized.mp4"
-          poster="/images/homepage/yoder_top_bg.jpg"
+          poster="/images/services/yoder_service_header_custom-decks.jpg"
           className="absolute inset-0 z-0"
         />
         

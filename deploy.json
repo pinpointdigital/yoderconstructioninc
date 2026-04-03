@@ -2,24 +2,24 @@
   "build": {
     "commands": [
       "npm install",
-      "npm run build"
+      "npm run build",
+      "cd out",
+      "find . -name '.*' -not -name '.well-known' -delete"
     ],
-    "output_directory": "out"
+    "output_directory": "."
   },
   "deploy": {
-    "source_path": "out/*",
+    "source_path": ".",
     "target_path": "yoderconstructioninc.com/public_html/",
     "sync_method": "mirror",
     "exclude": [
       ".DS_Store",
       "*.log",
-      "node_modules",
-      ".gitignore",
-      "README.md"
+      "node_modules"
     ]
   },
   "environment": {
     "NODE_VERSION": "18",
-    "BUILD_COMMAND": "npm run build"
+    "BUILD_COMMAND": "npm run build && cd out"
   }
 }

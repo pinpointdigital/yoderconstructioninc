@@ -20,8 +20,14 @@ Remote Destination:  yoderconstructioninc.com/public_html/
 #### 1. Repository Settings
 - **Repository URL**: `https://github.com/pinpointdigital/yoderconstructioninc.git`
 - **Branch**: `main`
-- **Build Commands**: `npm install && npm run build`
-- **Output Directory**: `out/`
+- **Build Commands**: 
+  ```bash
+  npm install
+  npm run build
+  cd out
+  find . -name ".*" -not -name ".well-known" -delete
+  ```
+- **Output Directory**: `.` (current directory, since we cd into out/)
 
 #### 2. Server Settings (SiteGround)
 - **Protocol**: SFTP (recommended) or FTP
@@ -32,14 +38,14 @@ Remote Destination:  yoderconstructioninc.com/public_html/
 - **Remote Path**: `yoderconstructioninc.com/public_html` ✅
 
 #### 3. Deploy Settings  
-- **Local Path (Source)**: `out/*` ⚠️ **CRITICAL: Use `out/*` NOT `out/`**
+- **Local Path (Source)**: `.` (current directory - build commands cd into out/)
 - **Remote Path (Destination)**: `yoderconstructioninc.com/public_html/` ✅ 
+- **Subdirectory to deploy from**: **LEAVE EMPTY** ⚠️ 
 - **Deployment Method**: Sync/Mirror (recommended)
 - **Excluded Files**: 
   - `.DS_Store`
   - `*.log` 
   - `node_modules/`
-  - `.git/`
 
 ### Deployment Process
 

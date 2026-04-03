@@ -25,7 +25,7 @@
 - **Remote Path**: `yoderconstructioninc.com/public_html` ✅
 
 #### 3. Deploy Settings  
-- **Local Path**: `out/` or `out/*`
+- **Local Path**: `out/*` ⚠️ **CRITICAL: Use `out/*` NOT `out/`**
 - **Remote Path**: `yoderconstructioninc.com/public_html` ✅ 
 - **Deployment Method**: Sync/Mirror (recommended)
 - **Excluded Files**: 
@@ -77,6 +77,12 @@
 - Clear browser cache
 - Check SiteGround file manager for deployed files
 - Verify domain DNS settings
+
+#### Images Missing / Site Unstyled
+- **Cause**: DeployHQ `Local Path` set to `out/` instead of `out/*`
+- **Fix**: Change DeployHQ Local Path to `out/*` in deploy settings
+- **Verify**: Check `public_html/images/` folder exists on SiteGround
+- **Manual Fix**: Upload `out/images/` folder manually via SiteGround File Manager
 
 ### Manual Deployment (Backup Method)
 

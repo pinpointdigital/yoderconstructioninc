@@ -7,12 +7,15 @@
     "output_directory": "out"
   },
   "deploy": {
-    "source_path": "out/",
+    "source_path": "out/*",
     "target_path": "public_html/",
+    "sync_method": "mirror",
     "exclude": [
       ".DS_Store",
       "*.log",
-      "node_modules"
+      "node_modules",
+      ".gitignore",
+      "README.md"
     ]
   },
   "environment": {

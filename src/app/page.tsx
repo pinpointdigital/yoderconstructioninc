@@ -152,8 +152,8 @@ export default function Home() {
       {/* Hero Section */}
       <section ref={heroRef} className="relative h-screen flex items-center justify-center overflow-hidden">
         <HeroVideo 
-          desktopVideo="/images/hero/YoderHeroVideo.mp4"
-          mobileVideo="/images/hero/hero-1_mobile.mp4"
+          desktopVideo="/images/hero/YoderHeroVideo-Resized.mp4"
+          mobileVideo="/images/hero/YoderHeroVideo-Resized.mp4"
           className="absolute inset-0 z-0"
         />
         

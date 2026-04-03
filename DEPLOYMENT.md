@@ -10,6 +10,13 @@
 
 ### DeployHQ Configuration
 
+#### Configuration Summary
+```
+Local Build Output:  out/*
+                      ↓ (DeployHQ copies)
+Remote Destination:  yoderconstructioninc.com/public_html/
+```
+
 #### 1. Repository Settings
 - **Repository URL**: `https://github.com/pinpointdigital/yoderconstructioninc.git`
 - **Branch**: `main`
@@ -25,8 +32,8 @@
 - **Remote Path**: `yoderconstructioninc.com/public_html` ✅
 
 #### 3. Deploy Settings  
-- **Local Path**: `out/*` ⚠️ **CRITICAL: Use `out/*` NOT `out/`**
-- **Remote Path**: `yoderconstructioninc.com/public_html` ✅ 
+- **Local Path (Source)**: `out/*` ⚠️ **CRITICAL: Use `out/*` NOT `out/`**
+- **Remote Path (Destination)**: `yoderconstructioninc.com/public_html/` ✅ 
 - **Deployment Method**: Sync/Mirror (recommended)
 - **Excluded Files**: 
   - `.DS_Store`

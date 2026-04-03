@@ -8,7 +8,7 @@
   },
   "deploy": {
     "source_path": "out/*",
-    "target_path": "public_html/",
+    "target_path": "yoderconstructioninc.com/public_html/",
     "sync_method": "mirror",
     "exclude": [
       ".DS_Store",

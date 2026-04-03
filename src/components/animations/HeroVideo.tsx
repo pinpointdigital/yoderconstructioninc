@@ -1,6 +1,6 @@
 'use client';
 
-import { useRef } from 'react';
+import { useRef, useEffect } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 
 interface HeroVideoProps {
@@ -29,11 +29,37 @@ export default function HeroVideo({
   const y = useTransform(scrollYProgress, [0, 1], [0, -50]);
   const opacity = useTransform(scrollYProgress, [0, 0.8, 1], [1, 0.8, 0.6]);
 
+  // Force video to play on mount (Safari fix)
+  useEffect(() => {
+    const video = videoRef.current;
+    if (video) {
+      // Force muted state for Safari
+      video.muted = true;
+      video.defaultMuted = true;
+      video.controls = false;
+      
+      // Safari-specific attributes
+      video.setAttribute('webkit-playsinline', 'true');
+      video.setAttribute('x-webkit-airplay', 'deny');
+      
+      // Attempt to play after a short delay
+      setTimeout(() => {
+        const playPromise = video.play();
+        if (playPromise !== undefined) {
+          playPromise.catch(error => {
+            // Auto-play was prevented, which is fine for Safari
+            console.log('Auto-play prevented:', error);
+          });
+        }
+      }, 100);
+    }
+  }, []);
+
   const handleClick = () => {
     const video = videoRef.current;
     if (video) {
       if (video.paused) {
-        video.play();
+        video.play().catch(console.error);
       } else {
         video.pause();
       }

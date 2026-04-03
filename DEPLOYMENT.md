@@ -18,11 +18,11 @@
 
 #### 2. Server Settings (SiteGround)
 - **Protocol**: SFTP (recommended) or FTP
-- **Host**: `[your-siteground-server].siteground.us`
-- **Username**: `[your-siteground-username]`
-- **Password**: `[your-siteground-password]`
-- **Port**: `22` (SFTP) or `21` (FTP)
-- **Remote Path**: `/public_html/`
+- **Host**: `gtxml251.siteground.biz` ✅
+- **Username**: `pinpoint@yoderconstructioninc.com` ✅
+- **Password**: `[your-siteground-password]` ✅
+- **Port**: `22` (SFTP recommended) or `21` (FTP - current)
+- **Remote Path**: `yoderconstructioninc.com/public_html` ✅
 
 #### 3. Deploy Settings
 - **Local Path**: `out/`

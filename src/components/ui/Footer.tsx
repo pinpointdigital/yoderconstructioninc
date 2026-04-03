@@ -129,7 +129,7 @@ export default function Footer() {
           <div className="border-t border-white/20 mt-12 pt-8">
             <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
               <p className="text-white/60 font-dm-sans text-sm">
-                © {currentYear} Yoder Construction Inc. All rights reserved.
+                © {currentYear} Yoder Construction Inc. All rights reserved. | v1.0
               </p>
               
               <div className="flex space-x-6 text-sm">

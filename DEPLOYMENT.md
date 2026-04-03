@@ -24,11 +24,13 @@
 - **Port**: `22` (SFTP recommended) or `21` (FTP - current)
 - **Remote Path**: `yoderconstructioninc.com/public_html` ✅
 
-#### 3. Deploy Settings
-- **Local Path**: `out/`
+#### 3. Deploy Settings  
+- **Local Path**: `out/` or `out/*`
+- **Remote Path**: `yoderconstructioninc.com/public_html` ✅ 
+- **Deployment Method**: Sync/Mirror (recommended)
 - **Excluded Files**: 
   - `.DS_Store`
-  - `*.log`
+  - `*.log` 
   - `node_modules/`
   - `.git/`
 

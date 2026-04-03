@@ -21,6 +21,7 @@ export default function Home() {
   const contentOpacity = useTransform(scrollYProgress, [0, 0.4, 0.8], [1, 0.7, 0.1]);
   const contentBlur = useTransform(scrollYProgress, [0, 0.3, 0.7], [0, 1, 8]);
   const contentScale = useTransform(scrollYProgress, [0, 0.5], [1, 0.95]);
+  const scrollBlur = useTransform(scrollYProgress, [0, 0.2], [0, 3]);
 
   // Sub-hero parallax effects
   const { scrollYProgress: subHeroScrollProgress } = useScroll({
@@ -214,7 +215,7 @@ export default function Home() {
             className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20 cursor-pointer hover:scale-110 transition-transform duration-300"
             style={{ 
               opacity: useTransform(scrollYProgress, [0, 0.3], [1, 0]),
-              filter: useTransform(scrollYProgress, [0, 0.2], (v) => `blur(${v * 3}px)`)
+              filter: useTransform(scrollBlur, (blur) => `blur(${blur}px)`)
             }}
             onClick={scrollToTopSection}
             aria-label="Scroll to next section"
@@ -260,7 +261,7 @@ export default function Home() {
         {/* Content with Slow Fade Animation */}
         <div className="relative z-10 py-36 lg:py-44">
           <div className="max-w-6xl mx-auto px-6 lg:px-8 text-center">
-            <ScrollReveal delay={0.4} duration={1.2}>
+            <ScrollReveal delay={0.4}>
               <div className="max-w-4xl mx-auto">
                 <p className="text-xl md:text-2xl lg:text-3xl font-dm-sans text-white leading-relaxed mb-10">
                   We design and build decks, patio covers, and outdoor living spaces with precision craftsmanship and lasting quality.

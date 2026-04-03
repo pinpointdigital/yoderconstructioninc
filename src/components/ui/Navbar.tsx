@@ -195,7 +195,7 @@ export default function Navbar() {
                             }}
                           >
                             <div className="grid grid-cols-3 gap-0">
-                              {link.dropdown.filter(item => item.href).map((item) => (
+                              {link.dropdown.filter((item: any) => item.href).map((item: any) => (
                                 <Link
                                   key={item.href}
                                   href={item.href}
@@ -241,7 +241,7 @@ export default function Navbar() {
                             }}
                           >
                             <div className="grid grid-cols-2 gap-0">
-                              {link.dropdown.map((section, index) => (
+                              {link.dropdown.map((section: any, index) => (
                                 <div
                                   key={section.title}
                                   className={`p-6 hover:bg-gray-50 transition-all duration-300 ${
@@ -266,7 +266,7 @@ export default function Navbar() {
 
                                   {/* Area Links */}
                                   <div className="space-y-2">
-                                    {section.areas.map((area) => (
+                                    {section.areas.map((area: any) => (
                                       <Link
                                         key={area.href}
                                         href={area.href}
@@ -382,7 +382,7 @@ export default function Navbar() {
                       <div className="space-y-3">
                         {link.label === 'Services' ? (
                           // Services dropdown for mobile
-                          link.dropdown.filter(item => item.href).map((item) => (
+                          link.dropdown.filter((item: any) => item.href).map((item: any) => (
                             <Link
                               key={item.href}
                               href={item.href}
@@ -394,13 +394,13 @@ export default function Navbar() {
                           ))
                         ) : link.label === 'Service Areas' ? (
                           // Service Areas dropdown for mobile
-                          link.dropdown.map((section) => (
+                          link.dropdown.map((section: any) => (
                             <div key={section.title} className="mb-6">
                               <div className="text-lg font-lora font-medium text-accent mb-3">
                                 {section.title}
                               </div>
                               <div className="space-y-2">
-                                {section.areas.map((area) => (
+                                {section.areas.map((area: any) => (
                                   <Link
                                     key={area.href}
                                     href={area.href}

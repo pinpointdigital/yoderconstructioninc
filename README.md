@@ -1,36 +1,82 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Yoder Construction Inc. Website
 
-## Getting Started
+Premium custom deck and outdoor living space builder website built with Next.js 14, TypeScript, and Tailwind CSS.
 
-First, run the development server:
+## 🌟 Features
 
+- **Hero Video Background** with Safari optimizations
+- **Responsive Design** - Mobile-first approach
+- **Framer Motion Animations** - Smooth scroll effects and transitions  
+- **Local SEO Pages** - Service area landing pages (Carlsbad, etc.)
+- **Contact Forms** - EmailJS integration for lead generation
+- **Image Galleries** - Lightbox functionality for project showcases
+- **Static Export** - Optimized for fast hosting on SiteGround
+
+## 🛠️ Development
+
+### Local Development
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+```
+Open [http://localhost:3000](http://localhost:3000) to view the site.
+
+### Production Build
+```bash
+npm run build
+```
+Generates static files in the `out/` directory ready for hosting.
+
+### Test Static Build
+```bash
+npm run build
+cd out && python3 -m http.server 8080
+```
+Test the production build at [http://localhost:8080](http://localhost:8080)
+
+## 🚀 Deployment
+
+### Automated Deployment (Recommended)
+- **GitHub** → **DeployHQ** → **SiteGround**
+- Push to `main` branch triggers automatic deployment
+- Build configuration in `deploy.json`
+
+### Manual Deployment
+Upload the contents of the `out/` folder to your SiteGround `public_html` directory.
+
+## 📁 Project Structure
+
+```
+src/
+├── app/                    # Next.js App Router pages
+│   ├── page.tsx           # Homepage
+│   ├── about/             # About Us page
+│   ├── services/          # Service pages (decks, patio covers, outdoor living)
+│   ├── service-areas/     # Local SEO pages (Carlsbad, etc.)
+│   ├── our-work/          # Portfolio gallery
+│   └── request-consultation/ # Contact form
+├── components/            # Reusable components
+│   ├── ui/               # UI components (Navbar, Footer, etc.)
+│   └── animations/       # Animation components (ScrollReveal, HeroVideo)
+└── styles/               # Global CSS and Tailwind config
+
+public/
+└── images/               # Optimized images and video assets
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🎨 Key Technologies
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- **Next.js 14** (App Router)
+- **TypeScript** for type safety
+- **Tailwind CSS** for styling  
+- **Framer Motion** for animations
+- **EmailJS** for contact forms
+- **Static Export** for hosting compatibility
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 📧 Contact Form
 
-## Learn More
+The contact form uses EmailJS for serverless form submission. Configure your EmailJS settings in the request consultation page.
 
-To learn more about Next.js, take a look at the following resources:
+---
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+**Built for Yoder Construction Inc. - Premium outdoor living spaces in Southern California**

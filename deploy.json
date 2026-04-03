@@ -1,0 +1,22 @@
+{
+  "build": {
+    "commands": [
+      "npm install",
+      "npm run build"
+    ],
+    "output_directory": "out"
+  },
+  "deploy": {
+    "source_path": "out/",
+    "target_path": "public_html/",
+    "exclude": [
+      ".DS_Store",
+      "*.log",
+      "node_modules"
+    ]
+  },
+  "environment": {
+    "NODE_VERSION": "18",
+    "BUILD_COMMAND": "npm run build"
+  }
+}

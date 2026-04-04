@@ -11,6 +11,7 @@ export default function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isServicesDropdownOpen, setIsServicesDropdownOpen] = useState(false);
   const [isServiceAreasDropdownOpen, setIsServiceAreasDropdownOpen] = useState(false);
+  const [showServiceAreasPanel, setShowServiceAreasPanel] = useState(false);
   const pathname = usePathname();
 
   useEffect(() => {
@@ -91,11 +92,46 @@ export default function Navbar() {
 
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
+    setShowServiceAreasPanel(false); // Reset panel when toggling menu
     if (!isMobileMenuOpen) {
       document.body.style.overflow = 'hidden';
     } else {
       document.body.style.overflow = 'unset';
     }
+  };
+
+  const openServiceAreas = () => {
+    setShowServiceAreasPanel(true);
+  };
+
+  const closeServiceAreas = () => {
+    setShowServiceAreasPanel(false);
+  };
+
+  // Service areas data for mobile menu
+  const serviceAreas = {
+    coastal: [
+      { href: '/service-areas/carlsbad', label: 'Carlsbad', subtitle: 'includes Aviara, La Costa' },
+      { href: '/service-areas/cardiff-by-the-sea', label: 'Cardiff-by-the-Sea', subtitle: '' },
+      { href: '/service-areas/del-mar', label: 'Del Mar', subtitle: '' },
+      { href: '/service-areas/encinitas', label: 'Encinitas', subtitle: 'includes Leucadia, Olivenhain' },
+      { href: '/service-areas/la-jolla', label: 'La Jolla', subtitle: '' },
+      { href: '/service-areas/oceanside', label: 'Oceanside', subtitle: '' },
+      { href: '/service-areas/san-clemente', label: 'San Clemente', subtitle: '' },
+      { href: '/service-areas/solana-beach', label: 'Solana Beach', subtitle: '' },
+    ],
+    inland: [
+      { href: '/service-areas/4s-ranch', label: '4S Ranch', subtitle: '' },
+      { href: '/service-areas/carmel-valley', label: 'Carmel Valley', subtitle: '' },
+      { href: '/service-areas/escondido', label: 'Escondido', subtitle: '' },
+      { href: '/service-areas/poway', label: 'Poway', subtitle: '' },
+      { href: '/service-areas/ramona', label: 'Ramona', subtitle: '' },
+      { href: '/service-areas/rancho-bernardo', label: 'Rancho Bernardo', subtitle: '' },
+      { href: '/service-areas/rancho-santa-fe', label: 'Rancho Santa Fe', subtitle: '' },
+      { href: '/service-areas/san-marcos', label: 'San Marcos', subtitle: '' },
+      { href: '/service-areas/valley-center', label: 'Valley Center', subtitle: '' },
+      { href: '/service-areas/vista', label: 'Vista', subtitle: '' },
+    ]
   };
 
   useEffect(() => {
@@ -114,7 +150,9 @@ export default function Navbar() {
         <div className="container-padding flex items-center justify-between h-24">
           {/* Logo */}
           <Link href="/" className="flex items-center">
-            <div className="relative w-40 h-16">
+            <div className={`relative transition-all duration-300 ${
+              isMobileMenuOpen ? 'w-32 h-12' : 'w-40 h-16'
+            }`}>
               {/* White logo for transparent background at 60% opacity */}
               <Image
                 src="/images/logo/Yoder-Construction-Logo_White.png"
@@ -350,117 +388,211 @@ export default function Navbar() {
         </div>
       </nav>
 
-      {/* Mobile Menu Overlay */}
-      <AnimatePresence>
-        {isMobileMenuOpen && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.3 }}
-            className="fixed inset-0 z-40 bg-primary-dark"
-          >
-            <motion.div
-              initial={{ y: -20, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              exit={{ y: -20, opacity: 0 }}
-              transition={{ duration: 0.3, delay: 0.1 }}
-              className="flex flex-col justify-center items-center h-full space-y-8"
+      {/* Mobile Menu Overlay - CSS Only 2-Page Slide-Out */}
+      {isMobileMenuOpen && (
+        <div className="fixed inset-0 z-40 bg-primary-dark lg:hidden">
+          <div className="relative w-full h-full overflow-hidden">
+            {/* Main Menu Panel */}
+            <div 
+              className={`absolute inset-0 transition-transform duration-300 ease-in-out ${
+                showServiceAreasPanel ? '-translate-x-full' : 'translate-x-0'
+              }`}
             >
-              {navLinks.map((link, index) => (
-                <motion.div
-                  key={link.href}
-                  initial={{ y: 20, opacity: 0 }}
-                  animate={{ y: 0, opacity: 1 }}
-                  transition={{ delay: 0.2 + index * 0.1, duration: 0.4 }}
-                >
-                  {link.dropdown ? (
-                    <div className="text-center">
-                      <div className="text-xl font-lora font-medium text-white mb-4">
-                        {link.label}
-                      </div>
-                      <div className="space-y-3">
-                        {link.label === 'Services' ? (
-                          // Services dropdown for mobile
-                          link.dropdown.filter((item: any) => item.href).map((item: any) => (
-                            <Link
-                              key={item.href}
-                              href={item.href}
-                              onClick={toggleMobileMenu}
-                              className="block text-base font-dm-sans text-white/80 hover:text-accent transition-colors duration-200"
-                            >
-                              {item.label}
-                            </Link>
-                          ))
-                        ) : link.label === 'Service Areas' ? (
-                          // Service Areas dropdown for mobile
-                          link.dropdown.map((section: any) => (
-                            <div key={section.title} className="mb-6">
-                              <div className="text-lg font-lora font-medium text-accent mb-3">
-                                {section.title}
-                              </div>
-                              <div className="space-y-2">
-                                {section.areas.map((area: any) => (
-                                  <Link
-                                    key={area.href}
-                                    href={area.href}
-                                    onClick={toggleMobileMenu}
-                                    className="block text-sm font-dm-sans text-white/80 hover:text-accent transition-colors duration-200"
-                                  >
-                                    {area.label}
-                                    {area.subtitle && (
-                                      <span className="text-xs text-white/60 block">
-                                        {area.subtitle}
-                                      </span>
-                                    )}
-                                  </Link>
-                                ))}
-                              </div>
-                            </div>
-                          ))
-                        ) : null}
+              <div className="flex flex-col justify-start items-center h-full px-6 pt-20 pb-8 overflow-y-auto">
+                <div className="w-full max-w-sm space-y-8">
+                  {/* Welcome Link */}
+                  <div className="text-left pt-8">
+                    <Link
+                      href="/"
+                      onClick={toggleMobileMenu}
+                      className="text-2xl font-lora font-normal text-white hover:text-accent transition-colors duration-200"
+                    >
+                      Welcome
+                    </Link>
+                  </div>
+
+                  {/* About Us */}
+                  <div className="text-left">
+                    <Link
+                      href="/about"
+                      onClick={toggleMobileMenu}
+                      className="text-2xl font-lora font-normal text-white hover:text-accent transition-colors duration-200"
+                    >
+                      About Us
+                    </Link>
+                  </div>
+
+                  {/* Services Section */}
+                  <div className="space-y-4">
+                    <h3 className="text-2xl font-lora font-normal text-white/60 text-left">Services</h3>
+                    <div className="space-y-3 text-right">
+                      <Link
+                        href="/services/custom-decks"
+                        onClick={toggleMobileMenu}
+                        className="block text-lg font-dm-sans font-normal text-white/90 hover:text-accent transition-colors duration-200"
+                      >
+                        Custom Decks
+                      </Link>
+                      <Link
+                        href="/services/patio-covers"
+                        onClick={toggleMobileMenu}
+                        className="block text-lg font-dm-sans font-normal text-white/90 hover:text-accent transition-colors duration-200"
+                      >
+                        Patio Covers
+                      </Link>
+                      <Link
+                        href="/services/outdoor-living"
+                        onClick={toggleMobileMenu}
+                        className="block text-lg font-dm-sans font-normal text-white/90 hover:text-accent transition-colors duration-200"
+                      >
+                        Outdoor Living Spaces
+                      </Link>
+                    </div>
+                  </div>
+
+                  {/* Our Work */}
+                  <div className="text-left">
+                    <Link
+                      href="/our-work"
+                      onClick={toggleMobileMenu}
+                      className="text-2xl font-lora font-normal text-white hover:text-accent transition-colors duration-200"
+                    >
+                      Our Work
+                    </Link>
+                  </div>
+
+                  {/* Service Areas Button */}
+                  <div className="text-left">
+                    <button
+                      onClick={openServiceAreas}
+                      className="flex items-center justify-between w-full text-2xl font-lora font-normal text-white hover:text-accent transition-colors duration-200"
+                    >
+                      <span>Service Areas</span>
+                      <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 7l6 5-6 5M5 12h15" />
+                      </svg>
+                    </button>
+                  </div>
+
+                  {/* Request Consultation */}
+                  <div className="text-center pt-4">
+                    <Link
+                      href="/request-consultation"
+                      onClick={toggleMobileMenu}
+                      className="inline-block px-8 py-4 border-2 border-white text-white font-dm-sans font-medium tracking-wide hover:bg-white hover:text-primary-dark"
+                      style={{
+                        borderRadius: '6px',
+                        transition: 'all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94)',
+                      }}
+                      onMouseEnter={(e) => {
+                        e.currentTarget.style.borderRadius = '50px';
+                      }}
+                      onMouseLeave={(e) => {
+                        e.currentTarget.style.borderRadius = '6px';
+                      }}
+                    >
+                      Request Your Consultation
+                    </Link>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Service Areas Slide Panel */}
+            <div 
+              className={`absolute inset-0 transition-transform duration-300 ease-in-out ${
+                showServiceAreasPanel ? 'translate-x-0' : 'translate-x-full'
+              }`}
+            >
+              <div className="flex flex-col h-full px-6 pt-20 pb-8 overflow-y-auto">
+                <div className="w-full max-w-sm mx-auto space-y-8 pt-8">
+                  {/* Header with Back Button */}
+                  <div className="flex items-center justify-between">
+                    <h2 className="text-2xl font-lora font-normal text-white">Service Areas</h2>
+                    <button
+                      onClick={closeServiceAreas}
+                      className="text-white hover:text-accent transition-colors duration-200"
+                    >
+                      <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 17l-6-5 6-5M19 12H4" />
+                      </svg>
+                    </button>
+                  </div>
+
+                  {/* Coastal Section */}
+                  <div className="space-y-4 pt-8">
+                    <div className="flex justify-between items-start">
+                      <h3 className="text-xl font-lora font-normal text-white/60">Coastal</h3>
+                      <div className="space-y-3 text-right">
+                        {serviceAreas.coastal.map((area) => (
+                          <Link
+                            key={area.href}
+                            href={area.href}
+                            onClick={toggleMobileMenu}
+                            className="block text-lg font-dm-sans font-normal text-white/90 hover:text-accent transition-colors duration-200"
+                          >
+                            {area.label}
+                            {area.subtitle && (
+                              <span className="text-sm text-white/60 block font-normal mt-1">
+                                {area.subtitle}
+                              </span>
+                            )}
+                          </Link>
+                        ))}
                       </div>
                     </div>
-                  ) : (
+                  </div>
+
+                  {/* Inland Section */}
+                  <div className="space-y-4">
+                    <div className="flex justify-between items-start">
+                      <h3 className="text-xl font-lora font-normal text-white/60">Inland</h3>
+                      <div className="space-y-3 text-right">
+                        {serviceAreas.inland.map((area) => (
+                          <Link
+                            key={area.href}
+                            href={area.href}
+                            onClick={toggleMobileMenu}
+                            className="block text-lg font-dm-sans font-normal text-white/90 hover:text-accent transition-colors duration-200"
+                          >
+                            {area.label}
+                            {area.subtitle && (
+                              <span className="text-sm text-white/60 block font-normal mt-1">
+                                {area.subtitle}
+                              </span>
+                            )}
+                          </Link>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Bottom CTA */}
+                  <div className="text-center pt-4">
                     <Link
-                      href={link.href}
+                      href="/request-consultation"
                       onClick={toggleMobileMenu}
-                      className="text-xl font-lora font-medium text-white hover:text-accent transition-colors duration-200"
+                      className="inline-block px-8 py-4 border-2 border-white text-white font-dm-sans font-medium tracking-wide hover:bg-white hover:text-primary-dark"
+                      style={{
+                        borderRadius: '6px',
+                        transition: 'all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94)',
+                      }}
+                      onMouseEnter={(e) => {
+                        e.currentTarget.style.borderRadius = '50px';
+                      }}
+                      onMouseLeave={(e) => {
+                        e.currentTarget.style.borderRadius = '6px';
+                      }}
                     >
-                      {link.label}
+                      Request Your Consultation
                     </Link>
-                  )}
-                </motion.div>
-              ))}
-              
-              <motion.div
-                initial={{ y: 20, opacity: 0 }}
-                animate={{ y: 0, opacity: 1 }}
-                transition={{ delay: 0.6, duration: 0.4 }}
-                className="mt-12"
-              >
-                <Link
-                  href="/request-consultation"
-                  onClick={toggleMobileMenu}
-                  className="group relative overflow-hidden px-4 py-2 border-2 border-white text-white font-dm-sans font-medium tracking-wide hover:bg-white hover:text-primary-dark"
-                  style={{
-                    borderRadius: '6px',
-                    transition: 'all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94)',
-                  }}
-                  onMouseEnter={(e) => {
-                    e.currentTarget.style.borderRadius = '50px';
-                  }}
-                  onMouseLeave={(e) => {
-                    e.currentTarget.style.borderRadius = '6px';
-                  }}
-                >
-                  <span className="relative z-10">Request Consultation</span>
-                </Link>
-              </motion.div>
-            </motion.div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </>
   );
 }

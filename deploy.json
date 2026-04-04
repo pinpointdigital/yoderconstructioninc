@@ -1,25 +1,32 @@
 {
   "build": {
     "commands": [
-      "npm install",
+      "rm -rf .next out node_modules/.cache",
+      "npm install", 
       "npm run build",
       "cd out",
-      "find . -name '.*' -not -name '.well-known' -delete"
+      "find . -name '.*' -not -name '.well-known' -delete",
+      "echo 'Build completed - forcing full sync'"
     ],
     "output_directory": "."
   },
   "deploy": {
     "source_path": ".",
     "target_path": "yoderconstructioninc.com/public_html/",
-    "sync_method": "mirror",
+    "sync_method": "rsync",
+    "rsync_options": "--delete-before --force --whole-file",
+    "pre_deploy_commands": [
+      "echo 'Starting complete file replacement deployment'"
+    ],
     "exclude": [
       ".DS_Store",
-      "*.log",
-      "node_modules"
+      "*.log", 
+      "node_modules",
+      ".well-known"
     ]
   },
   "environment": {
     "NODE_VERSION": "18",
-    "BUILD_COMMAND": "npm run build && cd out"
+    "FORCE_FRESH_BUILD": "true"
   }
 }

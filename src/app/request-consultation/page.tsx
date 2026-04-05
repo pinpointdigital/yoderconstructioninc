@@ -288,9 +288,23 @@ export default function RequestConsultation() {
                   <button
                     type="submit"
                     disabled={isSubmitting}
-                    className={`w-full btn-primary ${
+                    className={`w-full inline-block px-8 py-4 bg-accent text-background font-dm-sans font-medium tracking-wide hover:bg-accent/90 transition-colors duration-300 ${
                       isSubmitting ? 'opacity-75 cursor-not-allowed' : ''
                     }`}
+                    style={{
+                      borderRadius: '6px',
+                      transition: 'all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94)',
+                    }}
+                    onMouseEnter={(e) => {
+                      if (!isSubmitting) {
+                        e.currentTarget.style.borderRadius = '50px';
+                      }
+                    }}
+                    onMouseLeave={(e) => {
+                      if (!isSubmitting) {
+                        e.currentTarget.style.borderRadius = '6px';
+                      }
+                    }}
                   >
                     {isSubmitting ? 'Sending...' : 'Request Consultation'}
                   </button>
@@ -305,18 +319,19 @@ export default function RequestConsultation() {
               </form>
             </ScrollReveal>
 
-            {/* Trust Signals */}
+            {/* Accolades */}
             <ScrollReveal delay={0.4}>
               <div className="mt-12 pt-8 border-t border-accent/20">
-                <div className="grid grid-cols-3 gap-4 text-center">
+                <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 text-center">
                   <div>
                     <div className="w-10 h-10 bg-accent/10 rounded-full flex items-center justify-center mx-auto mb-2">
                       <svg className="w-5 h-5 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.6-3.6a8.5 8.5 0 11-7.23 0" />
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 3h4a2 2 0 012 2v1" />
                       </svg>
                     </div>
                     <p className="text-xs font-dm-sans font-medium text-text-primary">Licensed & Insured</p>
-                    <p className="text-xs text-text-light">CSLB #1098601</p>
+                    <p className="text-xs text-text-light">CSLB #1036601</p>
                   </div>
                   
                   <div>
@@ -326,17 +341,28 @@ export default function RequestConsultation() {
                       </svg>
                     </div>
                     <p className="text-xs font-dm-sans font-medium text-text-primary">5.0 Stars</p>
-                    <p className="text-xs text-text-light">HomeAdvisor</p>
+                    <p className="text-xs text-text-light">Yelp Reviewed</p>
                   </div>
                   
                   <div>
                     <div className="w-10 h-10 bg-accent/10 rounded-full flex items-center justify-center mx-auto mb-2">
                       <svg className="w-5 h-5 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1" />
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                       </svg>
                     </div>
-                    <p className="text-xs font-dm-sans font-medium text-text-primary">Free Consultations</p>
-                    <p className="text-xs text-text-light">No obligation</p>
+                    <p className="text-xs font-dm-sans font-medium text-text-primary">Serving SoCal</p>
+                    <p className="text-xs text-text-light">Since 2022</p>
+                  </div>
+                  
+                  <div>
+                    <div className="w-10 h-10 bg-accent/10 rounded-full flex items-center justify-center mx-auto mb-2">
+                      <svg className="w-5 h-5 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
+                      </svg>
+                    </div>
+                    <p className="text-xs font-dm-sans font-medium text-text-primary">Elite Service</p>
+                    <p className="text-xs text-text-light">HomeAdvisor Rated</p>
                   </div>
                 </div>
               </div>

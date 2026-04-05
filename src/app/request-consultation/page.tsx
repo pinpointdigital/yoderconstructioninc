@@ -119,7 +119,7 @@ export default function RequestConsultation() {
         </div>
 
         {/* Right Side - Form */}
-        <div className="flex items-center justify-center p-6 lg:p-12 bg-background lg:col-span-3">
+        <div className="flex items-center justify-center p-6 lg:p-12 pb-16 lg:pb-24 bg-background lg:col-span-3">
           <div className="w-full max-w-lg">
             <ScrollReveal>
               <div className="mb-8">

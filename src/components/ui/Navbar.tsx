@@ -538,9 +538,9 @@ export default function Navbar() {
 
                   {/* Coastal Section */}
                   <div className="space-y-4 pt-8">
-                    <div className="flex justify-between items-start">
-                      <h3 className="text-xl font-lora font-normal text-white/60">Coastal</h3>
-                      <div className="space-y-3 text-right">
+                    <div className="space-y-4">
+                      <h3 className="text-xl font-lora font-normal text-white/60 text-left">Coastal</h3>
+                      <div className="space-y-3 text-left pl-6">
                         {serviceAreas.coastal.map((area) => (
                           <Link
                             key={area.href}
@@ -562,9 +562,9 @@ export default function Navbar() {
 
                   {/* Inland Section */}
                   <div className="space-y-4">
-                    <div className="flex justify-between items-start">
-                      <h3 className="text-xl font-lora font-normal text-white/60">Inland</h3>
-                      <div className="space-y-3 text-right">
+                    <div className="space-y-4">
+                      <h3 className="text-xl font-lora font-normal text-white/60 text-left">Inland</h3>
+                      <div className="space-y-3 text-left pl-6">
                         {serviceAreas.inland.map((area) => (
                           <Link
                             key={area.href}

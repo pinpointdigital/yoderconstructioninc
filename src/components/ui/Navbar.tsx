@@ -442,7 +442,7 @@ export default function Navbar() {
                   {/* Services Section */}
                   <div className="space-y-4">
                     <h3 className="text-2xl font-lora font-normal text-white/60 text-left">Services</h3>
-                    <div className="space-y-3 text-right">
+                    <div className="space-y-3 text-left pl-6">
                       <Link
                         href="/services/custom-decks"
                         onClick={toggleMobileMenu}

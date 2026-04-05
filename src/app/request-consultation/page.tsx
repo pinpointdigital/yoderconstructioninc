@@ -145,7 +145,7 @@ export default function RequestConsultation() {
           <div className="w-full max-w-lg">
             <ScrollReveal>
               <div className="mb-8">
-                <span className="inline-block px-4 py-2 bg-accent/10 text-accent text-sm font-dm-sans font-medium uppercase tracking-wider rounded-full mb-6">
+                <span className="inline-block px-4 py-2 bg-accent/10 text-accent text-sm font-dm-sans font-medium uppercase tracking-wider rounded-full mb-10">
                   Request Consultation
                 </span>
                 <h1 className="text-3xl md:text-4xl font-lora font-medium text-text-primary mb-4">

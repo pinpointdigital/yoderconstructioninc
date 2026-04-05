@@ -39,7 +39,7 @@ export default function ReviewCarousel({ reviews }: ReviewCarouselProps) {
       intervalRef.current = setInterval(() => {
         setCurrentReview((prev) => (prev + 1) % reviews.length);
         setCurrentImage(0);
-      }, 3000);
+      }, 5000);
     } else {
       if (intervalRef.current) {
         clearInterval(intervalRef.current);
@@ -72,7 +72,7 @@ export default function ReviewCarousel({ reviews }: ReviewCarouselProps) {
         >
           {/* Image Gallery */}
           <div className="relative">
-            <div className="relative h-80 lg:h-96 overflow-hidden rounded-xl shadow-2xl group">
+            <div className="relative h-96 lg:h-96 overflow-hidden rounded-xl shadow-2xl group">
               <motion.div
                 className="flex h-full"
                 animate={{

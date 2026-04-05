@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 
 export default function TermsOfService() {
   return (
-    <div className="min-h-screen pt-20 bg-background">
+    <div className="min-h-screen pt-20 bg-background force-navbar-solid">
       {/* Header Section */}
       <section className="section-padding bg-primary-dark text-white">
         <div className="container-padding text-center">

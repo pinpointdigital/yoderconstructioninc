@@ -522,7 +522,7 @@ export default function Navbar() {
               }`}
             >
               <div className="flex flex-col h-full px-6 pt-20 pb-8 overflow-y-auto">
-                <div className="w-full max-w-sm mx-auto space-y-8 pt-8">
+                <div className="w-full max-w-sm mx-auto space-y-8 pt-12">
                   {/* Header with Back Button */}
                   <div className="flex items-center justify-between">
                     <h2 className="text-2xl font-lora font-normal text-white">Service Areas</h2>

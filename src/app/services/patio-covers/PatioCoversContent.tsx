@@ -278,7 +278,20 @@ export function PatioCoversContent() {
                 </div>
 
                 <div className="mt-8">
-                  <Link href="/request-consultation" className="btn-primary">
+                  <Link
+                    href="/request-consultation"
+                    className="inline-block px-8 py-4 bg-accent text-background font-dm-sans font-medium tracking-wide hover:bg-accent/90 transition-colors duration-300"
+                    style={{
+                      borderRadius: '6px',
+                      transition: 'all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94)',
+                    }}
+                    onMouseEnter={(e) => {
+                      e.currentTarget.style.borderRadius = '50px';
+                    }}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.style.borderRadius = '6px';
+                    }}
+                  >
                     Discuss Your Project
                   </Link>
                 </div>

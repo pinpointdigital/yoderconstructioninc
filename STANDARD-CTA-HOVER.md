@@ -61,6 +61,7 @@ The **Standard CTA Hover** is the consistent rectangle-to-pill hover animation p
 ✅ **About Page Project Section:** "Request Consultation" & "View Our Work"  
 ✅ **Custom Decks CTA Section:** "Request Consultation" & "View Deck Projects"  
 ✅ **Patio Covers CTA Section:** "Request Consultation" & "View Cover Projects"  
+✅ **Patio Covers Built to Last:** "Discuss Your Project"  
 ✅ **Mobile Menu CTA:** "Request Your Consultation"  
 
 ## 🎯 Usage Guidelines

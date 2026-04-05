@@ -96,9 +96,9 @@ export default function RequestConsultation() {
   return (
     <div className="min-h-screen pt-20 force-navbar-solid">
       {/* Split Layout */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 min-h-screen">
+      <div className="grid grid-cols-1 lg:grid-cols-5 min-h-screen">
         {/* Left Side - Image */}
-        <div className="relative bg-gray-200 hidden lg:block">
+        <div className="relative bg-gray-200 hidden lg:block lg:col-span-2">
           {/* Placeholder for full-height image */}
           <div className="absolute inset-0 bg-gradient-to-br from-accent/30 to-primary-dark/60 ambient-photo flex items-center justify-center">
             <span className="text-white text-lg font-lora">Consultation Image</span>
@@ -119,7 +119,7 @@ export default function RequestConsultation() {
         </div>
 
         {/* Right Side - Form */}
-        <div className="flex items-center justify-center p-6 lg:p-12 bg-background">
+        <div className="flex items-center justify-center p-6 lg:p-12 bg-background lg:col-span-3">
           <div className="w-full max-w-lg">
             <ScrollReveal>
               <div className="mb-8">

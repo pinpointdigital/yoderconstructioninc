@@ -12,18 +12,12 @@ export default function PrivacyPolicy() {
   return (
     <div className="min-h-screen pt-20 bg-background force-navbar-solid">
       {/* Header Section */}
-      <section className="section-padding bg-primary-dark text-white">
+      <section className="py-16 bg-primary-dark text-white">
         <div className="container-padding text-center">
           <ScrollReveal>
-            <span className="inline-block px-4 py-2 bg-accent/10 text-accent text-sm font-dm-sans font-medium uppercase tracking-wider rounded-full mb-10">
-              Legal Information
-            </span>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-lora font-medium mb-6">
+            <h1 className="text-4xl md:text-5xl font-lora font-medium">
               Privacy Policy
             </h1>
-            <p className="text-xl md:text-2xl font-lora font-light italic max-w-3xl mx-auto">
-              Your privacy is important to us. This policy explains how we collect and use your information.
-            </p>
           </ScrollReveal>
         </div>
       </section>

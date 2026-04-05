@@ -322,7 +322,7 @@ export function CustomDecksContent() {
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Link
                   href="/request-consultation"
-                  className="inline-block px-8 py-4 border-2 border-white text-white font-dm-sans font-medium tracking-wide hover:bg-white hover:text-primary-dark transition-colors duration-300"
+                  className="inline-block px-8 py-4 bg-accent text-background font-dm-sans font-medium tracking-wide hover:bg-accent/90 transition-colors duration-300"
                   style={{
                     borderRadius: '6px',
                     transition: 'all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94)',
@@ -338,7 +338,7 @@ export function CustomDecksContent() {
                 </Link>
                 <Link
                   href="/our-work"
-                  className="inline-block px-8 py-4 bg-accent text-background font-dm-sans font-medium tracking-wide hover:bg-accent/90 transition-colors duration-300"
+                  className="inline-block px-8 py-4 border-2 border-white text-white font-dm-sans font-medium tracking-wide hover:bg-white hover:text-primary-dark transition-colors duration-300"
                   style={{
                     borderRadius: '6px',
                     transition: 'all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94)',

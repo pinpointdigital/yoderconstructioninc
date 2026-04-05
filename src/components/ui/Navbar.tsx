@@ -12,6 +12,7 @@ export default function Navbar() {
   const [isServicesDropdownOpen, setIsServicesDropdownOpen] = useState(false);
   const [isServiceAreasDropdownOpen, setIsServiceAreasDropdownOpen] = useState(false);
   const [showServiceAreasPanel, setShowServiceAreasPanel] = useState(false);
+  const [forceNavbarSolid, setForceNavbarSolid] = useState(false);
   const pathname = usePathname();
 
   useEffect(() => {
@@ -22,6 +23,20 @@ export default function Navbar() {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  useEffect(() => {
+    // Check if the current page has the force-navbar-solid class
+    const checkForceNavbarSolid = () => {
+      const hasForceClass = document.querySelector('.force-navbar-solid');
+      setForceNavbarSolid(!!hasForceClass);
+    };
+
+    checkForceNavbarSolid();
+    // Check again when pathname changes
+    const timeoutId = setTimeout(checkForceNavbarSolid, 100);
+    
+    return () => clearTimeout(timeoutId);
+  }, [pathname]);
 
   const navLinks = [
     { href: '/about', label: 'About Us' },
@@ -144,7 +159,7 @@ export default function Navbar() {
     <>
       <nav 
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-          isScrolled ? 'navbar-solid' : 'bg-transparent'
+          isScrolled || forceNavbarSolid ? 'navbar-solid' : 'bg-transparent'
         }`}
       >
         <div className="container-padding flex items-center justify-between h-24">
@@ -162,7 +177,7 @@ export default function Navbar() {
                 fill
                 unoptimized={true}
                 className={`object-contain transition-opacity duration-500 ${
-                  isScrolled ? 'opacity-0' : 'opacity-60'
+                  isScrolled || forceNavbarSolid ? 'opacity-0' : 'opacity-60'
                 }`}
                 priority
               />
@@ -173,7 +188,7 @@ export default function Navbar() {
                 fill
                 unoptimized={true}
                 className={`object-contain transition-opacity duration-500 ${
-                  isScrolled ? 'opacity-100' : 'opacity-0'
+                  isScrolled || forceNavbarSolid ? 'opacity-100' : 'opacity-0'
                 }`}
               />
             </div>
@@ -197,9 +212,9 @@ export default function Navbar() {
                   >
                     <button
                       className={`nav-link text-base font-dm-sans font-medium py-2 transition-colors duration-300 ${
-                        isScrolled ? 'nav-scrolled' : 'nav-transparent'
+                        isScrolled || forceNavbarSolid ? 'nav-scrolled' : 'nav-transparent'
                       } ${
-                        isScrolled 
+                        isScrolled || forceNavbarSolid 
                           ? (isActivePath(link.href) ? 'text-accent' : 'text-white hover:text-accent')
                           : (isActivePath(link.href) ? 'text-accent' : 'text-white hover:text-[#ebebeb]')
                       }`}
@@ -335,9 +350,9 @@ export default function Navbar() {
                   <Link
                     href={link.href}
                     className={`nav-link text-base font-dm-sans font-medium py-2 transition-colors duration-300 ${
-                      isScrolled ? 'nav-scrolled' : 'nav-transparent'
+                      isScrolled || forceNavbarSolid ? 'nav-scrolled' : 'nav-transparent'
                     } ${
-                      isScrolled 
+                      isScrolled || forceNavbarSolid 
                         ? (isActivePath(link.href) ? 'text-accent' : 'text-white hover:text-accent')
                         : (isActivePath(link.href) ? 'text-accent' : 'text-white hover:text-[#ebebeb]')
                     }`}

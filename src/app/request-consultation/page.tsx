@@ -106,9 +106,9 @@ export default function RequestConsultation() {
   return (
     <div className="min-h-screen pt-20 force-navbar-solid">
       {/* Split Layout */}
-      <div className="grid grid-cols-1 lg:grid-cols-5 min-h-screen">
+      <div className="grid grid-cols-1 lg:grid-cols-7 min-h-screen">
         {/* Left Side - Parallax Hero Image */}
-        <div ref={parallaxRef} className="relative bg-gray-200 hidden lg:block lg:col-span-2 overflow-hidden">
+        <div ref={parallaxRef} className="relative bg-gray-200 hidden lg:block lg:col-span-3 overflow-hidden">
           {/* Parallax Hero Image */}
           <motion.div 
             className="absolute inset-0 w-full h-full"
@@ -141,7 +141,7 @@ export default function RequestConsultation() {
         </div>
 
         {/* Right Side - Form */}
-        <div className="flex items-center justify-center p-6 lg:p-12 pb-16 lg:pb-24 bg-background lg:col-span-3">
+        <div className="flex items-center justify-center p-6 lg:p-12 pb-16 lg:pb-24 bg-background lg:col-span-4">
           <div className="w-full max-w-lg">
             <ScrollReveal>
               <div className="mb-8">

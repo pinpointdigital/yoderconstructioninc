@@ -1,12 +1,13 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import { useForm } from 'react-hook-form';
 import { useRouter } from 'next/navigation';
 import emailjs from '@emailjs/browser';
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import Image from 'next/image';
+import { motion, useScroll, useTransform } from 'framer-motion';
 import { ScrollReveal } from '../../components';
 
 interface FormData {
@@ -24,6 +25,14 @@ export default function RequestConsultation() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitError, setSubmitError] = useState('');
   const router = useRouter();
+  const parallaxRef = useRef(null);
+  
+  const { scrollYProgress } = useScroll({
+    target: parallaxRef,
+    offset: ["start end", "end start"]
+  });
+  
+  const y = useTransform(scrollYProgress, [0, 1], [0, -50]);
   
   const {
     register,
@@ -98,20 +107,25 @@ export default function RequestConsultation() {
     <div className="min-h-screen pt-20 force-navbar-solid">
       {/* Split Layout */}
       <div className="grid grid-cols-1 lg:grid-cols-5 min-h-screen">
-        {/* Left Side - Image */}
-        <div className="relative bg-gray-200 hidden lg:block lg:col-span-2">
-          {/* Premium Vertical Collage */}
-          <div className="absolute inset-0">
-            <Image
-              src="/assets/consultation-collage.jpg"
-              alt="Yoder Construction Premium Outdoor Spaces - Custom Decks, Patio Covers, and Outdoor Living"
-              fill
-              className="object-cover object-center"
-              priority
-              quality={95}
-            />
-          </div>
-          <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
+        {/* Left Side - Parallax Hero Image */}
+        <div ref={parallaxRef} className="relative bg-gray-200 hidden lg:block lg:col-span-2 overflow-hidden">
+          {/* Parallax Hero Image */}
+          <motion.div 
+            className="absolute inset-0 w-full h-full"
+            style={{ y }}
+          >
+            <div className="absolute inset-0 scale-110">
+              <Image
+                src="/images/hero/yoder_requestconsultation_hero.jpg"
+                alt="Yoder Construction - Premium Outdoor Construction and Design"
+                fill
+                className="object-cover object-center"
+                priority
+                quality={95}
+              />
+            </div>
+          </motion.div>
+          <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
           
           {/* Overlay Content */}
           <div className="absolute bottom-12 left-12 text-white max-w-md">

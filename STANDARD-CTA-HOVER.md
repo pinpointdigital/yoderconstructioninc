@@ -58,6 +58,7 @@ The **Standard CTA Hover** is the consistent rectangle-to-pill hover animation p
 ✅ **Navbar CTA:** "Request Consultation"  
 ✅ **Footer CTA:** "Get Free Consultation"  
 ✅ **About Page CTA:** "Work With Matt"  
+✅ **About Page Project Section:** "Request Consultation" & "View Our Work"  
 ✅ **Mobile Menu CTA:** "Request Your Consultation"  
 
 ## 🎯 Usage Guidelines

@@ -159,17 +159,6 @@ export default function TermsOfService() {
                   </div>
                 </div>
 
-                {/* Call to Action */}
-                <div className="mt-16 p-8 bg-primary-dark rounded-lg text-center">
-                  <h3 className="text-2xl font-lora font-medium text-white mb-4">Ready to Start Your Project?</h3>
-                  <p className="text-white/90 mb-6 font-dm-sans">Contact us today for a free consultation on your outdoor living space.</p>
-                  <Link
-                    href="/request-consultation"
-                    className="inline-block px-8 py-4 bg-accent text-background font-dm-sans font-medium tracking-wide hover:bg-accent/90 transition-all duration-300 rounded-md hover:rounded-full"
-                  >
-                    Request Consultation
-                  </Link>
-                </div>
               </div>
             </ScrollReveal>
           </div>

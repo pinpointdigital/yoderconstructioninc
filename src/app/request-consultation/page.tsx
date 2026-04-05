@@ -6,6 +6,7 @@ import { useRouter } from 'next/navigation';
 import emailjs from '@emailjs/browser';
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import Image from 'next/image';
 import { ScrollReveal } from '../../components';
 
 interface FormData {
@@ -99,11 +100,18 @@ export default function RequestConsultation() {
       <div className="grid grid-cols-1 lg:grid-cols-5 min-h-screen">
         {/* Left Side - Image */}
         <div className="relative bg-gray-200 hidden lg:block lg:col-span-2">
-          {/* Placeholder for full-height image */}
-          <div className="absolute inset-0 bg-gradient-to-br from-accent/30 to-primary-dark/60 ambient-photo flex items-center justify-center">
-            <span className="text-white text-lg font-lora">Consultation Image</span>
+          {/* Premium Vertical Collage */}
+          <div className="absolute inset-0">
+            <Image
+              src="/assets/consultation-collage.jpg"
+              alt="Yoder Construction Premium Outdoor Spaces - Custom Decks, Patio Covers, and Outdoor Living"
+              fill
+              className="object-cover object-center"
+              priority
+              quality={95}
+            />
           </div>
-          <div className="absolute inset-0 gradient-overlay-dark" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
           
           {/* Overlay Content */}
           <div className="absolute bottom-12 left-12 text-white max-w-md">

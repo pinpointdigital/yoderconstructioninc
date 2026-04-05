@@ -59,6 +59,7 @@ The **Standard CTA Hover** is the consistent rectangle-to-pill hover animation p
 ✅ **Footer CTA:** "Get Free Consultation"  
 ✅ **About Page CTA:** "Work With Matt"  
 ✅ **About Page Project Section:** "Request Consultation" & "View Our Work"  
+✅ **Custom Decks CTA Section:** "Request Consultation" & "View Deck Projects"  
 ✅ **Mobile Menu CTA:** "Request Your Consultation"  
 
 ## 🎯 Usage Guidelines

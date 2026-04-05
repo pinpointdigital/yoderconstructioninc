@@ -42,7 +42,7 @@ export default function ThankYou() {
             
             <div className="space-y-4 text-left">
               <div className="flex items-start space-x-4">
-                <div className="w-8 h-8 bg-accent text-white rounded-full flex items-center justify-center font-dm-sans font-medium text-sm mt-1 flex-shrink-0">
+                <div className="w-10 h-10 bg-accent text-white rounded-full flex items-center justify-center font-dm-sans font-medium text-sm mt-1 flex-shrink-0">
                   1
                 </div>
                 <div>
@@ -54,7 +54,7 @@ export default function ThankYou() {
               </div>
 
               <div className="flex items-start space-x-4">
-                <div className="w-8 h-8 bg-accent text-white rounded-full flex items-center justify-center font-dm-sans font-medium text-sm mt-1 flex-shrink-0">
+                <div className="w-10 h-10 bg-accent text-white rounded-full flex items-center justify-center font-dm-sans font-medium text-sm mt-1 flex-shrink-0">
                   2
                 </div>
                 <div>
@@ -66,7 +66,7 @@ export default function ThankYou() {
               </div>
 
               <div className="flex items-start space-x-4">
-                <div className="w-8 h-8 bg-accent text-white rounded-full flex items-center justify-center font-dm-sans font-medium text-sm mt-1 flex-shrink-0">
+                <div className="w-10 h-10 bg-accent text-white rounded-full flex items-center justify-center font-dm-sans font-medium text-sm mt-1 flex-shrink-0">
                   3
                 </div>
                 <div>

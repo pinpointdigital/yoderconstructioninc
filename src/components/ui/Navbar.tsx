@@ -167,8 +167,8 @@ export default function Navbar() {
           <Link href="/" className="flex items-center">
             <div className={`relative transition-all duration-300 ${
               isMobileMenuOpen 
-                ? 'w-24 h-9 lg:w-32 lg:h-12' 
-                : 'w-28 h-11 lg:w-40 lg:h-16'
+                ? 'w-24 h-9 lg:w-28 lg:h-11' 
+                : 'w-28 h-11 lg:w-36 lg:h-14'
             }`}>
               {/* White logo for transparent background at 60% opacity */}
               <Image

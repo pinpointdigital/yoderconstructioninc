@@ -418,7 +418,7 @@ export default function Navbar() {
               <div className="flex flex-col justify-start items-center h-full px-6 pt-20 pb-8 overflow-y-auto">
                 <div className="w-full max-w-sm space-y-8">
                   {/* Welcome Link */}
-                  <div className="text-left pt-8">
+                  <div className="text-left pt-12">
                     <Link
                       href="/"
                       onClick={toggleMobileMenu}
@@ -479,7 +479,7 @@ export default function Navbar() {
                   </div>
 
                   {/* Service Areas Button */}
-                  <div className="text-left">
+                  <div className="text-left pt-6">
                     <button
                       onClick={openServiceAreas}
                       className="flex items-center justify-between w-full text-2xl font-lora font-normal text-white hover:text-accent transition-colors duration-200"

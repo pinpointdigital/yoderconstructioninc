@@ -320,10 +320,36 @@ export function CustomDecksContent() {
                 Let's discuss your vision.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Link href="/request-consultation" className="btn-secondary">
+                <Link
+                  href="/request-consultation"
+                  className="inline-block px-8 py-4 border-2 border-white text-white font-dm-sans font-medium tracking-wide hover:bg-white hover:text-primary-dark transition-colors duration-300"
+                  style={{
+                    borderRadius: '6px',
+                    transition: 'all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94)',
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.borderRadius = '50px';
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.borderRadius = '6px';
+                  }}
+                >
                   Request Consultation
                 </Link>
-                <Link href="/our-work" className="btn-primary bg-accent hover:bg-accent/90">
+                <Link
+                  href="/our-work"
+                  className="inline-block px-8 py-4 bg-accent text-background font-dm-sans font-medium tracking-wide hover:bg-accent/90 transition-colors duration-300"
+                  style={{
+                    borderRadius: '6px',
+                    transition: 'all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94)',
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.borderRadius = '50px';
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.borderRadius = '6px';
+                  }}
+                >
                   View Deck Projects
                 </Link>
               </div>

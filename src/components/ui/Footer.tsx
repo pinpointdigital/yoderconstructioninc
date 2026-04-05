@@ -110,10 +110,16 @@ export default function Footer() {
                 <div className="pt-4">
                   <Link
                     href="/request-consultation"
-                    className="group relative overflow-hidden px-4 py-2 border-2 border-white text-white font-dm-sans font-medium tracking-wide transition-all duration-500 ease-out hover:bg-white hover:text-primary-dark hover:rounded-full inline-block"
+                    className="inline-block px-6 py-3 border-2 border-white text-white font-dm-sans font-medium tracking-wide hover:bg-white hover:text-primary-dark transition-colors duration-300"
                     style={{
-                      borderRadius: '4px',
-                      transition: 'all 0.5s cubic-bezier(0.4, 0, 0.2, 1)'
+                      borderRadius: '6px',
+                      transition: 'all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94)',
+                    }}
+                    onMouseEnter={(e) => {
+                      e.currentTarget.style.borderRadius = '50px';
+                    }}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.style.borderRadius = '6px';
                     }}
                   >
                     <span className="relative z-10">Get Free Consultation</span>

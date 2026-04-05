@@ -143,17 +143,7 @@ export default function PrivacyPolicy() {
                   <p className="text-white/90 mb-6 font-dm-sans">Contact us today for a free consultation on your outdoor living space.</p>
                   <Link
                     href="/request-consultation"
-                    className="inline-block px-8 py-4 bg-accent text-background font-dm-sans font-medium tracking-wide hover:bg-accent/90 transition-colors duration-300"
-                    style={{
-                      borderRadius: '6px',
-                      transition: 'all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94)',
-                    }}
-                    onMouseEnter={(e) => {
-                      e.currentTarget.style.borderRadius = '50px';
-                    }}
-                    onMouseLeave={(e) => {
-                      e.currentTarget.style.borderRadius = '6px';
-                    }}
+                    className="inline-block px-8 py-4 bg-accent text-background font-dm-sans font-medium tracking-wide hover:bg-accent/90 transition-all duration-300 rounded-md hover:rounded-full"
                   >
                     Request Consultation
                   </Link>

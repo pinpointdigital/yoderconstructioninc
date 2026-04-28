@@ -101,19 +101,23 @@ export function AboutContent() {
                 
                 <div className="space-y-4 text-text-primary font-dm-sans leading-relaxed">
                   <p>
-                    Matt Yoder started building at fifteen, working alongside his dad on their family farm. What began with fence lines and outbuildings became a lifelong craft.
+                    Matt Yoder started building at fourteen, working alongside his dad in his father’s construction company, Yoder Construction. From a young age, he was involved in every phase of building a home, from start to finish, gaining a full understanding of what it takes to deliver a complete project at a high level.
                   </p>
                   
                   <p>
-                    He later apprenticed under one of North County San Diego's most respected deck builders, learning not just technique but philosophy — that the difference between good and great is in the details most people skip.
+                    He later apprenticed under one of North County San Diego’s most respected deck builders, where he developed not just technical skill, but a clear philosophy: the difference between good and exceptional lies in the details most people overlook.
                   </p>
                   
                   <p>
-                    In 2022, Matt founded Yoder Construction on a simple principle: the little things are the big things. Every cut, every joint, every material choice matters.
+                    In 2022, Matt founded Yoder Construction on a simple principle: the little things are the big things. Every cut, every joint, every material choice is intentional.
                   </p>
                   
                   <p>
-                    Today, Matt and his crew serve homeowners from San Clemente through North County San Diego, bringing that same standard to every project they take on.
+                    Just as important as the work itself is the team behind it. Matt is committed to building a high-functioning crew that takes pride in their craft and genuinely enjoys where they work. That culture carries into every client interaction — where relationships matter, communication is clear, and the process is handled with care. The team is passionate about bringing each client’s vision for their space to life — listening closely, thinking ahead, and building it with intention.
+                  </p>
+
+                  <p>
+                    Today, Matt and his team serve homeowners from San Clemente through North County San Diego, bringing each client’s vision to life with precision and a standard that aims not just to meet expectations, but to exceed them.
                   </p>
                 </div>
 
@@ -196,7 +200,7 @@ export function AboutContent() {
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <ScrollReveal>
             <div className="flex flex-wrap items-center justify-center gap-16 lg:gap-20 xl:gap-24 text-white">
-              {/* Licensed & Insured */}
+              {/* Licensed, Bonded, and Insured */}
               <div className="flex items-center space-x-3">
                 <div className="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center">
                   <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
@@ -204,7 +208,7 @@ export function AboutContent() {
                   </svg>
                 </div>
                 <div>
-                  <div className="text-base font-semibold font-dm-sans">Licensed & Insured</div>
+                  <div className="text-base font-semibold font-dm-sans">Licensed, Bonded, and Insured</div>
                   <div className="text-white/80 text-sm font-dm-sans">CSLB #1036601</div>
                 </div>
               </div>

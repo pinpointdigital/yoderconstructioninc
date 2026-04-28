@@ -97,7 +97,7 @@ export default function RequestConsultation() {
       router.push('/thank-you');
     } catch (error) {
       console.error('Error sending email:', error);
-      setSubmitError('There was an error sending your message. Please try again or call us directly at (760) 730-6776.');
+      setSubmitError('There was an error sending your message. Please try again or call us directly at (760) 421-7978.');
     } finally {
       setIsSubmitting(false);
     }

@@ -14,7 +14,7 @@ function CarlsbadLocalBusinessSchema() {
     "name": "Yoder Construction Inc.",
     "description": "Custom deck builder and outdoor living space contractor serving Carlsbad, CA",
     "url": "https://yoderconstructioninc.com/service-areas/carlsbad",
-    "telephone": "(760) 730-6776",
+    "telephone": "(760) 421-7978",
     "address": {
       "@type": "PostalAddress",
       "streetAddress": "918 Mission Avenue, Ste 120 #250",

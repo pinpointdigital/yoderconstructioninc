@@ -117,7 +117,7 @@ export default function PrivacyPolicy() {
                       <div className="bg-accent/5 p-6 rounded-lg border-l-4 border-accent">
                         <p><strong>Yoder Construction Inc.</strong></p>
                         <p>Email: <a href="mailto:hello@yoderconstructioninc.com" className="text-accent hover:underline">hello@yoderconstructioninc.com</a></p>
-                        <p>Phone: <a href="tel:+17607306776" className="text-accent hover:underline">(760) 730-6776</a></p>
+                        <p>Phone: <a href="tel:+17604217978" className="text-accent hover:underline">(760) 421-7978</a></p>
                         <p>License: CSLB #1036601</p>
                       </div>
                     </div>

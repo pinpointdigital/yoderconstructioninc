@@ -5,7 +5,7 @@ export default function LocalBusinessSchema() {
     "name": "Yoder Construction Inc.",
     "description": "Precision craftsmanship for Southern California's finest outdoor living spaces. Custom decks, patio covers, and outdoor rooms built to last generations.",
     "url": "https://yoderconstructioninc.com",
-    "telephone": "(760) 730-6776",
+    "telephone": "(760) 421-7978",
     "email": "hello@pinpointdigital.us",
     "address": {
       "@type": "PostalAddress",
